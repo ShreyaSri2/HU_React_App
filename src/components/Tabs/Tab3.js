@@ -1,7 +1,6 @@
 import React, {useState} from "react";
 
 const Tab3 = () => {
-    //var [storageNtwk, setStorageNtwk] = useState(1);
     var [list, setList] = useState([]);
 
     function addVolume(event){
