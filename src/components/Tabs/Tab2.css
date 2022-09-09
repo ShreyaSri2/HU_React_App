@@ -1,0 +1,45 @@
+.tab2-mainCls{
+    display: flex;
+    flex-direction: column;
+}
+
+.mainCls-btns {
+    display: flex;
+    flex-direction: row;
+    margin-left: 20px;
+    margin-top: 15px;
+}
+
+.mainCls-btn {
+    box-sizing: border-box;
+    width: 195px;
+    height: 58px;
+    background: #FFF;
+    border: 1px solid rgba(0, 0, 0, 0.29);
+    border-radius: 6px;
+    color: #000;
+    font-weight: 600;
+    font-size: 18px;
+    text-align: center;
+    line-height: 32px;
+    font-style: normal;
+    margin: 3px
+}
+
+.tab2-p{
+    margin-left: 24px;
+    margin-top: 20px;
+    font-weight: 420;
+    color: #000;
+    line-height: 29px;
+    font-style: normal;
+    font-size: 20px;
+}
+
+.drop-downs{
+    width: 400px;
+    display: flex;
+    flex-direction: row;
+    margin-left: 20px;
+    justify-content: space-around;
+}

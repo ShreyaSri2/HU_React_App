@@ -1,0 +1,157 @@
+.radioBtns{
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+    margin-top: 10px;
+}
+
+.subTab-header {
+    margin-left: 22px;
+    margin-top: 40px;
+    font-size: 22px;
+    font-weight: 600;
+    line-height: 30px;
+    color: #000;
+}
+
+.subTab-box{
+    display: flex;
+    flex-direction: column;
+}
+
+.drp-dwn{
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    height: 265px;
+    border-radius: 5px;
+    background: #FFF;
+    box-shadow: 0px 0px 8px rgba(37, 40, 43, 0.12);
+    margin-top: 5px;
+    margin-left: 5px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.drp-spn{
+    width: 100%;
+    /*eight: 65px;*/
+    padding: 10px 0 10px 5px;
+    color: #52575C;
+    line-height: 18px;
+    font-size: 12px;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.drp-spn:hover {
+    background: #E5F2FF;
+    /*opacity: 0.04;*/
+    color: #007EFF;
+    width: 98%;
+    border-radius: 5px;
+    font-size: 12.5px;
+}
+
+.drpDwn-bx{
+    width: 700px;
+    margin-left: 18px;
+    margin-top: 10px;
+}
+
+.drpDwn-box-div{
+    width: 450px;
+    height: 35px;
+    background: #FFF;
+    border: 1px solid #DBDDE0;
+    border-radius: 8px;
+    position: relative;
+    left: 5px;
+    margin-top: 10px;
+}
+
+.drpDwn-box-text{
+    margin-left: 15px;
+    height: 18px;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 16px;
+    color: #007EFE;
+    letter-spacing: 0.1px;
+}
+
+.arrowDrpDn{
+    position: relative;
+    left: 425px;
+    bottom: 32px;
+}
+
+.newSec-Cls{
+    display: flex;
+    flex-direction: column;
+}
+
+.newSec-liDiv{
+    width: 775px;
+    height: 88px;
+    background: #fff;
+    display: flex;
+    flex-direction: row;
+    border-radius: 6px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.25);
+    margin-left: 22px;
+}
+
+.newSec-ipTxt{
+    width: 95px;
+    height: 20px;
+    background: #fff;
+    border: 1px solid #c4c4c4;
+    border-radius: 4px;
+    color: #c4c4c4;
+    margin-top: -2px;
+    pointer-events: none;
+}
+
+.sub-part-liDiv {
+    width: 68px;
+    height: 16px;
+    align-self: center;
+    text-align: center;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 16px;
+    color: #000;
+}
+
+.inputSecNme {
+    margin-left: 20px;
+    border: 1px solid #C4C5C4;
+    height: 25px;
+    width: 275px;
+    border-radius: 4px;
+}
+
+.btn-rule{
+    margin: 180px 0px 0px 22px;
+    border: none;
+    width: 110px;
+    height: 45px;
+    border-radius: 8px;
+    box-shadow: 0px 8px 16px rgba(160, 164, 168, 0.35);
+    color: #FFF;
+    background: #A0A4A8;
+    font-size: 14px;
+    font-weight: 400;
+
+}
+
+.selectCls{
+    background: #FFF;
+    width: 90px;
+    height: 25px;
+    border-radius: 4px;
+    color: #007EFF;
+    border: 1px solid #007EFF;
+}

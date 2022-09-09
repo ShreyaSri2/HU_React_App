@@ -1,0 +1,83 @@
+.tab-content{
+    width: 910px;
+    /*background-color: #FFF;*/
+}
+
+.list-item {
+    list-style-type: none;
+    width: 845px;
+    height: 110px;
+    margin-top: 10px;
+    /*border: 0.5px solid gray;*/
+    margin-left: -18px;
+    background: #FFF;
+    border-radius: 6px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.25);
+    display: flex;
+    flex-direction: row;
+}
+
+.li-left {
+    width: 90px;
+    height: 90px;
+    margin: 10px;
+    background: #C4C4C4;
+    border-radius: 4px;
+}
+
+.li-center{
+    display: flex;
+    flex-direction: column;
+    width: 590px;
+}
+
+.li-right{
+    width: 140px;
+}
+
+.li-form{
+    display: flex;
+    flex-direction: column;
+    width: 120px;
+    margin: 10px;
+}
+
+.form-input {
+    font-size: 12px;
+    font-weight: 600;
+    color: #000;
+    letter-spacing: 0.2px;
+    font-style: normal;
+    line-height: 18px;
+}
+
+.li-header {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 25px;
+    line-height: 30px;
+    color: #000000;
+}
+
+.li-desc{
+    font-size: 12px;
+    margin-top: -12px;
+}
+
+.form-radioBtn{
+    accent-color: #007EFF;
+    line-height: 18px;
+    font-size: 12px;
+}
+
+.form-btn {
+    height:32px;
+    background: #007EFF;
+    color: #FFF;
+    border-radius: 6px;
+    box-shadow: 0px 8px 16px rgba(0, 126, 255, 0.16);
+    text-align: center;
+    margin-top: 15px;
+    border: none;
+    font-weight: 600;
+}
