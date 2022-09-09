@@ -155,3 +155,46 @@
     color: #007EFF;
     border: 1px solid #007EFF;
 }
+
+.mainDiv {
+    width: 825px;
+    height: 95px;
+    background: #FFF;
+    border-radius: 6px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.25);
+    margin-left: 20px;
+    display: flex;
+    flex-direction: row;
+    margin-top: 20px;
+}
+
+.colorInput{
+    width: 25px;
+    height: 25px;
+}
+
+.sub-p{
+    width: 68px;
+    height: 16px;
+    align-self: center;
+    text-align: center;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 16px;
+    color: #000;
+}
+
+.cross{
+    width: 10px;
+    height: 25px;
+    border-radius: 25px;
+    background: #C4C4C4;
+    margin-left: 15px;
+    color: #000;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-weight: 400;
+    font-size: 16px;
+    margin-top: 55px;
+}
