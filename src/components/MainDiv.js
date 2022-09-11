@@ -36,7 +36,7 @@ const MainDiv = () => {
     }
 
     const DropDown = () => (
-        <div className="drop-down">
+        <div className="drop-down" id="regionD-D">
             <span onClick={selectRegion} className="spn">US-East-1</span>
             <span onClick={selectRegion} className="spn">Asia Pacific-Mumbai</span>
             <span onClick={selectRegion} className="spn">US-West-1</span>
@@ -61,10 +61,10 @@ const MainDiv = () => {
 
                 
                 <div className="nav-bar">
-                    <Link to='/'><button onClick={headerBtnClicked} style={{width:"112px"}} className="btn">1.Choose Image</button></Link>
-                    <Link to='/tab2'><button onClick={headerBtnClicked} style={{width:"150px"}} className="btn">2.Choose Instance Type</button></Link>
-                    <Link to='/tab3'><button onClick={headerBtnClicked} className="btn">3.Choose Storage and Network</button></Link>
-                    <Link to='/tab4'><button onClick={headerBtnClicked} className="btn">4.Configure Security</button></Link>
+                    <Link to='/'><button onClick={headerBtnClicked} style={{width:"112px"}} className="btn" data-testid="maindiv-ID1">1.Choose Image</button></Link>
+                    <Link to='/tab2'><button onClick={headerBtnClicked} style={{width:"150px"}} className="btn" data-testid="maindiv-ID2">2.Choose Instance Type</button></Link>
+                    <Link to='/tab3'><button onClick={headerBtnClicked} className="btn" data-testid="maindiv-ID3">3.Choose Storage and Network</button></Link>
+                    <Link to='/tab4'><button onClick={headerBtnClicked} className="btn" data-testid="maindiv-ID4">4.Configure Security</button></Link>
                     <Link to='/tab5'><button onClick={headerBtnClicked} className="btn">5.Review {'&'} Launch</button></Link>
                 </div>
                 

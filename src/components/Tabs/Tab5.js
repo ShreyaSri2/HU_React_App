@@ -3,20 +3,23 @@ import AppContext from "../../context/AppContext";
 import './Tab1.css';
 import './Tab5.css';
 import './ButtonCls.css';
+import { useNavigate } from "react-router-dom";
 import Modal from "../Overlay/Modal";
 
-
-const tt1 = JSON.parse(localStorage.getItem("tab1"));
-const tt2 = JSON.parse(localStorage.getItem("tab2"));
-const tt3 = JSON.parse(localStorage.getItem("tab3"));
-const tt4 = JSON.parse(localStorage.getItem("tab4"));
-
 const Tab5 = () => {
-    const { openOverlay , setOpenOverlay } = useContext(AppContext);
+    const { openOverlay , setOpenOverlay, costList, setCostList, totPrice, setTotPrice } = useContext(AppContext);
+
+    let tt1 = JSON.parse(localStorage.getItem("tab1"));
+    let tt2 = JSON.parse(localStorage.getItem("tab2"));
+    let tt3 = JSON.parse(localStorage.getItem("tab3"));
+    let tt4 = JSON.parse(localStorage.getItem("tab4"));
+    
     const [t1, setT1] = useState(tt1);
     const [t2, setT2] = useState(tt2);
     const [t3, setT3] = useState(tt3);
     const [t4, setT4] = useState(tt4);
+
+    const navigate = useNavigate();
 
 
     const Ttb1 = () => {
@@ -110,35 +113,47 @@ const Tab5 = () => {
         );
     }
 
+    const goBack_tab5 = () => {
+        navigate("/tab4");
+    }
+
+    const cancelAll = () => {
+        //localStorage.removeItem("tab1");
+        //localStorage.removeItem("tab2");
+        //localStorage.removeItem("tab3");
+        //localStorage.removeItem("tab4");
+        localStorage.clear();
+        setOpenOverlay(false);
+        setCostList({});
+        setTotPrice(0);
+
+        navigate("/");
+    }
+
     
     return (
         <div>
-            <h2 style={{marginLeft:"22px"}}>Image</h2>
+            <h2 style={{marginLeft:"22px"}} data-testid="tab5_ID1">Image</h2>
             {t1 ? <Ttb1 /> : null}
-            <h2 style={{marginLeft:"22px",marginTop:"60px"}}>Instance</h2>
+            <h2 style={{marginLeft:"22px",marginTop:"60px"}} data-testid="tab5_ID2">Instance</h2>
             {t2 ? <Ttb2 /> : null}
-            <h2 style={{marginLeft:"22px",marginTop:"60px"}}>Storage</h2>
+            <h2 style={{marginLeft:"22px",marginTop:"60px"}} data-testid="tab5_ID3">Storage</h2>
             {t3 ? <Ttb3 /> : null}
-            <h2 style={{marginLeft:"22px",marginTop:"60px"}}>Security Groups : ( {t4[0]} )</h2>
+            <h2 style={{marginLeft:"22px",marginTop:"60px"}} data-testid="tab5_ID4">Security Groups : ( {t4[0]} )</h2>
             {t4 ? <Ttb4 />: null}
 
-            <h2 style={{marginLeft:"22px",marginTop:"60px"}}>Number of Instances</h2>
+            <h2 style={{marginLeft:"22px",marginTop:"60px"}} data-testid="tab5_ID5">Number of Instances</h2>
             <input style={{marginLeft:"22px",width:"300px",height:"25px",borderRadius:"4px",border:"1px solid #C4C4C4"}} className="" type="text" value="2" disabled="" readOnly />
 
             <div className="main-btnDiv">
-                <button className="main-btnCls" style={{background:"#FB4E4E"}}>Cancel</button>
-                <button className="main-btnCls" style={{background:"#000"}}>Back</button>
-                <button className="main-btnCls" style={{background:"#2AC769"}} onClick={() => { setOpenOverlay(true); }}>Launch</button>
+                <button className="main-btnCls" style={{background:"#FB4E4E"}} data-testid="tab5_ID6" onClick={cancelAll}>Cancel</button>
+                <button className="main-btnCls" style={{background:"#000"}} data-testid="tab5_ID7" onClick={goBack_tab5}>Back</button>
+                <button className="main-btnCls" style={{background:"#2AC769"}} data-testid="tab5_ID8" onClick={() => { setOpenOverlay(true); }}>Launch</button>
             </div>
         </div>
         
     )
 }
 
-//  { openOverlay && <Modal/> }
-
 
 export default Tab5;
-
-//var jl = JSON.parse(localStorage.getItem("tab1"));
-//console.log(jl[4]);

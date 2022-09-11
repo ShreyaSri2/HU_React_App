@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate, useOutletContext } from "react-router-dom";
 import './Tab4.css';
+import './ButtonCls.css';
 
 const CreateSecurity = (props) => {
     const [portRange, setPortRange] = useState('000');
@@ -34,18 +35,19 @@ const CreateSecurity = (props) => {
 
     const addRule = () => {
         if(listD.includes(securityGroup)){
-            setSuccess(true);
             alert("Name of the Security Group already exists...Try Again!");   
         }else{
-            //get all the value required for last screen - port, type, remark, name (* get type from port value) 
-            setSuccess(false);
             alert("New Rule Added Successfully.");
         }
     }
 
+    const back_tab4a = () => {
+        navigate("/tab3");
+    }
+
     const proceed_tab4a = () => {
         let arr = [];
-        if(success){
+        if(type !== "Type"){
             arr.push(securityGroup)
             arr.push(type);
             arr.push('TCP');
@@ -61,12 +63,12 @@ const CreateSecurity = (props) => {
 
     return (
         <div className="newSec-Cls">
-            <p className="subTab-header">New Security Group</p>
+            <p data-testid="createSec-id1" className="subTab-header">New Security Group</p>
             <input className="inputSecNme" type="text" placeholder="New Security Group Name" onChange={addName}></input>
-            <p className="subTab-header">Add Rule</p>
+            <p data-testid="createSec-id2" className="subTab-header">Add Rule</p>
             <div className="newSec-liDiv">
                 <div style={{margin:"5px 25px 5px 25px"}}>
-                    <p className="sub-part-liDiv">Type</p>
+                    <p data-testid="createSec-id3" className="sub-part-liDiv">Type</p>
                     <select className="selectCls" onChange={handleSelectChange}>
                         <option value="Type">Type</option>
                         <option value="HTTPS">HTTPS</option>
@@ -75,26 +77,29 @@ const CreateSecurity = (props) => {
                     </select>
                 </div>
                 <div style={{margin:"5px 25px 5px 25px"}}>
-                    <p className="sub-part-liDiv">Protocol</p>
+                    <p data-testid="createSec-id4" className="sub-part-liDiv">Protocol</p>
                     <input className="newSec-ipTxt" type="text" value="TCP" disabled="" readOnly />
                 </div>
                 <div style={{margin:"5px 25px 5px 25px"}}>
-                    <p className="sub-part-liDiv">Port Range</p>
+                    <p data-testid="createSec-id5" className="sub-part-liDiv">Port Range</p>
                     <input className="newSec-ipTxt" type="text" value={portRange} disabled="" readOnly />
                 </div>
                 <div style={{margin:"5px 25px 5px 25px"}}>
-                    <p className="sub-part-liDiv">Source</p>
+                    <p data-testid="createSec-id6" className="sub-part-liDiv">Source</p>
                     <input className="newSec-ipTxt" type="text" value="192.168.1.1" disabled="" readOnly />
                 </div>
                 <div style={{margin:"5px 25px 5px 25px"}}>
-                    <p className="sub-part-liDiv">Description</p>
+                    <p data-testid="createSec-id7" className="sub-part-liDiv">Description</p>
                     <input style={{pointerEvents:"auto", color:"#000"}} className="newSec-ipTxt" type="text" placeholder="Some Remarks" onChange={addRemarks}></input>
                 </div>
             </div>
 
-            <button className="btn-rule" onClick={addRule}>Add Rule</button>
+            <button data-testid="createSec-id8" className="btn-rule" onClick={addRule}>Add Rule</button>
 
-            <button onClick={proceed_tab4a}>Proceed</button>
+            <div className="main-btnDiv">
+                <button data-testid="createSec-id10"className="main-btnCls" style={{background:"#000"}} onClick={back_tab4a}>Back</button>
+                <button data-testid="createSec-id9" className="main-btnCls" style={{background:"#007EFF"}} onClick={proceed_tab4a}>Proceed</button>
+            </div>
         </div>
     )
 }
@@ -102,4 +107,3 @@ const CreateSecurity = (props) => {
 
 export default CreateSecurity;
 
-//<input className="newSec-ipTxt" type="text" placeholder="Some Remarks" onChange={addRemarks} maxLength="100"/>

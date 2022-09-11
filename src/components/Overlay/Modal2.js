@@ -1,20 +1,20 @@
 import React , {useContext} from "react";
 import "./Modal.css";
-import AppContext from "../../context/AppContext";
+
+
 function Modal() {
-    const { openOverlay , setOpenOverlay, costList, setCostList } = useContext(AppContext);
 
   return (
     <div className="modalBackground">
       <div className="modalContainer">
         <div className="titleCloseBtn">
-          <button style={{fontSize:"20px"}} onClick={() => { setOpenOverlay(false); }} > X </button>
+          <button style={{fontSize:"20px"}}  > X </button>
         </div>
         <div className="title">
-          <p>Success</p>
+          <p style={{color:"red"}}>Cancelled</p>
         </div>
         <div className="body">
-          <p>VM(s) Created with provided configurations successfully!</p>
+          <p>All your current selected configuration is now set to null</p>
         </div>
       </div>
     </div>

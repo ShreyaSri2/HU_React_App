@@ -2,13 +2,13 @@ import React, { useState } from "react";
 import './Tab4.css';
 
 const ListItem = (props) => {
-    //console.log(props);
+    
     const [type, setType] = useState('Storage');
     const [iops, setIOPS] = useState('');
     const [remrk, setRemrk] = useState('');
 
     const removeElem = (event) => {
-        //console.log(event.target.id);
+       
         props.onCrossClick(event.target.id);
     }
 

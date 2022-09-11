@@ -35,7 +35,6 @@
 
 .drp-spn{
     width: 100%;
-    /*eight: 65px;*/
     padding: 10px 0 10px 5px;
     color: #52575C;
     line-height: 18px;
@@ -46,7 +45,6 @@
 
 .drp-spn:hover {
     background: #E5F2FF;
-    /*opacity: 0.04;*/
     color: #007EFF;
     width: 98%;
     border-radius: 5px;

@@ -1,25 +1,17 @@
 .main-div {
     width: 970px;
-    /*height: 500px;*/
-    /*margin: 18px;*/
     display: flex;
     flex-direction: row;
-
-    /*background-color: #FFFFFF;
-    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.25);
-    border-radius: 5px;*/
 }
 
 .sub-div {
     width: 72%;
-    /*border: 2px solid black;*/
     height: 30%;
     margin-left: 10px;
 }
 
 .region-box {
     width: 20%;
-    /*height: 30%;*/
     margin-left: 5px;
     margin-left: 15px;
     margin-top: 25px;
@@ -30,7 +22,6 @@
     position: relative;
     left: 15px;
     font-style: normal;
-    /*font-family:'Montserrat'*/
     font-weight: 500;
     font-size: 44px;
     line-height: 54px;
@@ -40,7 +31,6 @@
 .nav-bar {
     height: 60px;
     margin: 10px;
-    /*border: 1px solid blue;*/
     display: flex;
     flex-direction: row;
 }
@@ -53,8 +43,6 @@
     border: none;
     color: #000;
     background: #FFF;
-    /* box-shadow: 0px 8px 16px rgb(0 126 255 / 16%); */
-    /* border-radius: 5px; */
     border-bottom: 2px solid #A0A4A8;
 
     font-weight: 600;
@@ -113,7 +101,6 @@
 
 .spn:hover {
     background: #E5F2FF;
-    /*opacity: 0.04;*/
     color: #007EFF;
     width: 98%;
     border-radius: 5px;

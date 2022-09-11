@@ -1,7 +1,6 @@
 import './App.css';
 import MainDiv from './components/MainDiv';
 import {BrowserRouter as Router} from 'react-router-dom';
-import AppState from './context/AppState';
 import { useState, useContext } from 'react';
 import Modal from './components/Overlay/Modal';
 import AppContext from './context/AppContext';
@@ -9,16 +8,13 @@ import AppContext from './context/AppContext';
 
 
 function App(props) {
-  const [modalOpen, setModelOpen] = useState(false);
-  //const {openOverlay, setOpenOverlay} = useContext(AppContext);
-
   const [openOverlay, setOpenOverlay] = useState(false);
-  //const val = useContext(AppContext);
-//setModelOpen={setModelOpen}
+  const [costList, setCostList] = useState({});
+  const [totPrice, setTotPrice] = useState(0);
 
 
   return (
-  <AppContext.Provider value={{openOverlay, setOpenOverlay}}>
+  <AppContext.Provider value={{openOverlay, setOpenOverlay, costList, setCostList,totPrice, setTotPrice}}>
     <Router>
       {openOverlay && <Modal />}
       <div className='main'>
@@ -30,7 +26,18 @@ function App(props) {
           <div className='br'>
             <div className='cost-box'>
               <h3 className='cost-box-heading'>Cost Estimates</h3>
-              
+              <div>
+                {Object.keys(costList).map((key, index) => {
+                  return (
+                    <li key={key} className='cost-list'>
+                      <p className='cost-item'>{costList[key][0]}</p>
+                      <p className='cost-price'>$ {costList[key][1]}</p>
+                    </li>
+                  );
+                })}
+              </div>
+              <div className='line'></div>
+                <li className='totalCost'>$ {totPrice}</li>
             </div>
           </div> 
         </div>
@@ -39,6 +46,5 @@ function App(props) {
   </AppContext.Provider>
   );
 }
-//<button onClick={() => { setModelOpen(true); }}>Open</button>
 
 export default App;
