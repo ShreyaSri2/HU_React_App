@@ -1,27 +1,23 @@
 import React, { useState } from "react";
 import './Tab4.css';
 
-const ListItem = (props) => {
-    //console.log(props);
+const MainListItem = (props) => {
     const [type, setType] = useState('Storage');
     const [iops, setIOPS] = useState('');
-    const [remrk, setRemrk] = useState('');
-
-    const removeElem = (event) => {
-        //console.log(event.target.id);
-        props.onCrossClick(event.target.id);
-    }
+    const [cap, setCap] = useState();
+    const [rmk, setRmk] = useState('');
 
     const handleType = (event) => {
         setType(event.target.value);
     }
 
-    const handleRemarks = (event) => {
-        setRemrk(event.target.value);
+    const handleVal = (event) => {
+        setRmk(event.target.value);
     }
 
     const addCapacity = (event) => {
         var capacity = event.target.value;
+        setCap(capacity);
         if(type === 'SSD'){
             if(capacity >= 20 && capacity <= 512){
                 if(capacity < 100)
@@ -80,15 +76,12 @@ const ListItem = (props) => {
                 </div>
                 <div style={{margin:"2px 15px 2px 15px"}}>
                     <p className="sub-part-liDiv">Remarks</p>
-                    <input style={{pointerEvents:"auto",color:"#000"}} className="newSec-ipTxt" type="text" placeholder="Some Remarks" onChange={handleRemarks}/>
+                    <input style={{pointerEvents:"auto",color:"#000"}} className="newSec-ipTxt" type="text" placeholder="Some Remarks" onChange={handleVal}/>
                 </div>
             </div>
-
-            {props.flag ? <span className="cross" id={props.id} onClick={removeElem} >x</span> : null}
-
         </div>
     );
 
 }
 
-export default ListItem;
+export default MainListItem;

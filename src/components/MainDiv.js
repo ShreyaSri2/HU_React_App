@@ -11,27 +11,36 @@ import Tab4 from '../components/Tabs/Tab4';
 import Tab5 from '../components/Tabs/Tab5';
 import CreateSecurity from "./Tabs/CreateSecurity";
 import SelectSecurity from "./Tabs/SelectSecurity";
+import General from './Tabs/General';
+import CPU from './Tabs/CPU';
+import Storage from './Tabs/Storage';
+import Network from './Tabs/Network';
+import NotFoundPage from './Tabs/NotFoundPage';
 
-//var glblHeader = 'Choose Image';
 
 const MainDiv = () => {
     const [showDropDown, setShowDropDown] = useState(false);
-    const [headerVal, setHeaderVal] = useState('Choose Image')
+    const [headerVal, setHeaderVal] = useState('Choose Image');
+    const [region, setRegion] = useState('Region');
 
     const headerBtnClicked = (event) => {
         let str = event.target.innerText;
         let ss = str.split('.');
-        //glblHeader = ss[1];
         setHeaderVal(ss[1]);
-        console.log(ss[1]);
+    }
+
+    const selectRegion = (event) => {
+        let sstr = event.target.innerText;
+        setRegion(sstr);
+        toggleDropDown();
     }
 
     const DropDown = () => (
         <div className="drop-down">
-                    <span className="spn">US-East-1</span>
-                    <span className="spn">Asia Pacific - Mumbai</span>
-                    <span className="spn">US-West-1</span>
-                </div>
+            <span onClick={selectRegion} className="spn">US-East-1</span>
+            <span onClick={selectRegion} className="spn">Asia Pacific-Mumbai</span>
+            <span onClick={selectRegion} className="spn">US-West-1</span>
+        </div>
     )
 
     function toggleDropDown(){
@@ -65,7 +74,7 @@ const MainDiv = () => {
 
             <div className="region-box">
                 <div className="region-box-div">
-                    <p className="region-box-text">Region</p>
+                    <p className="region-box-text">{region}</p>
                     <img src={Vector} className="arrowDn" alt="icon" onClick={toggleDropDown}/>
                 </div>
 
@@ -77,14 +86,20 @@ const MainDiv = () => {
 
 
         <Routes>
-                <Route path='/' element={<Tab1 />}></Route>
-                <Route path='tab2' element={<Tab2 />}></Route>
+                <Route path='/' element={<Tab1 regionNm={region} />}></Route>
+                <Route path='tab2' element={<Tab2 />}>
+                    <Route path='t2a' element={<General />}></Route>
+                    <Route path='t2b' element={<CPU />}></Route>
+                    <Route path='t2c' element={<Storage />}></Route>
+                    <Route path='t2d' element={<Network />}></Route>
+                </Route>
                 <Route path='tab3' element={<Tab3 />}></Route>
                 <Route path='tab4' element={<Tab4 />}>
                     <Route path='t4a' element={<CreateSecurity />}></Route>
                     <Route path='t4b' element={<SelectSecurity />}></Route>
                 </Route>
                 <Route path='tab5' element={<Tab5 />}></Route>
+                <Route path="*" element={<NotFoundPage />}></Route>
         </Routes>
 
         </>

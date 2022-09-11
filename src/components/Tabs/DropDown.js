@@ -5,12 +5,21 @@ import '../MainDiv.css';
 const DropDown = (props) => {
     const [showDropDownList, setShowDropDownList] = useState(false);
 
+    const handleVal = (event) => {
+        let val = event.target.innerText;
+        if(props.title_dd === "CPU Cores"){
+            props.onCoreClick(val);
+        }else{
+            props.onMemoryClick(val);
+        }
+    }
+
     const DropDownList = () => (
-        <div className="drop-down"  style={{height:"180px"}}>
+        <div className="drop-down"  style={{height:"180px",width:"145px"}}>
             {
-                props.arrData.map((elem) => {
+                props.arrData.map((elem,i) => {
                     return(
-                        <span className="spn" style={{height:"36px"}}>{elem}</span>
+                        <span key={i} className="spn" style={{height:"36px"}} onClick={handleVal}>{elem}</span>
                     )
                 })
             }

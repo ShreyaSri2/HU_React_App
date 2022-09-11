@@ -26,6 +26,11 @@
     margin: 3px
 }
 
+.mainCls-btn:hover {
+    border: 1px solid #007EFF;
+    color: #007EFF;
+}
+
 .tab2-p{
     margin-left: 24px;
     margin-top: 20px;
