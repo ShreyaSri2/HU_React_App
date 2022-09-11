@@ -1,15 +1,17 @@
-import React, {useState} from "react";
+import React, {useState, useContext} from "react";
 import './Tab4.css';
 import ListItem from "./ListItem";
 import MainListItem from "./MainListItem";
 import { useNavigate } from "react-router-dom";
+import AppContext from "../../context/AppContext";
+import './ButtonCls.css';
 
-//var cc = 1;
 
 const Tab3 = () => {
     const [counter, setCounter] = useState(0);
     const [list, setList] = useState([]);
     const navigate = useNavigate();
+    const { openOverlay , setOpenOverlay, costList, setCostList, totPrice, setTotPrice } = useContext(AppContext);
 
     function addVolume(){
         setList(list.concat(<ListItem key={counter+1} vol="Ext" flag={true} id={counter+1} onCrossClick={removeElement}/>));
@@ -17,7 +19,6 @@ const Tab3 = () => {
     };
 
     const removeElement = (boxId) => {
-        //console.log(boxId);
         let newList = list.filter((el,i) => i !== boxId);
         setList(newList);
     }
@@ -31,8 +32,17 @@ const Tab3 = () => {
         arr.push('600');
         arr.push('Testing');
         localStorage.setItem("tab3",JSON.stringify(arr));
+
+        let newObj = {...costList};
+        newObj["tab3"] = ["Storage" , (20+"")];
+        setCostList(newObj);
+        setTotPrice(totPrice+parseFloat(20));
         
         navigate("/tab4");
+    }
+
+    const back_tab3 = () => {
+        navigate("/tab2");
     }
 
     return (
@@ -41,9 +51,13 @@ const Tab3 = () => {
               
             {list}
 
-            <button className="btn-rule" onClick={addVolume}>Add Volume</button>
+            <button data-testid="tab3-Ids1" className="btn-rule" onClick={addVolume}>Add Volume</button>
 
-            <button onClick={proceed_tab3}>Procced</button>
+
+            <div className="main-btnDiv">
+                <button data-testid="tab3-Ids3" className="main-btnCls" style={{background:"#000"}} onClick={back_tab3}>Back</button>
+                <button data-testid="tab3-Ids2" className="main-btnCls" style={{background:"#007EFF"}} onClick={proceed_tab3}>Proceed</button>
+            </div>
         </div>
     );
 }

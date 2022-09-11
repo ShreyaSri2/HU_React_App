@@ -1,6 +1,5 @@
 .tab-content{
     width: 910px;
-    /*background-color: #FFF;*/
 }
 
 .list-item {
@@ -8,7 +7,6 @@
     width: 845px;
     height: 110px;
     margin-top: 10px;
-    /*border: 0.5px solid gray;*/
     margin-left: -18px;
     background: #FFF;
     border-radius: 6px;
@@ -72,7 +70,7 @@
 
 .form-btn {
     height:32px;
-    background: #007EFF;
+    background: #C4C4C4;
     color: #FFF;
     border-radius: 6px;
     box-shadow: 0px 8px 16px rgba(0, 126, 255, 0.16);
@@ -80,4 +78,8 @@
     margin-top: 15px;
     border: none;
     font-weight: 600;
+}
+
+.form-btn:hover {
+    background: #007EFF;
 }

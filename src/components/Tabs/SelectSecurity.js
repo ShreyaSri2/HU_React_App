@@ -2,6 +2,7 @@ import React, {useState} from "react";
 import './Tab4.css';
 import Vector from '../../icons/Vector.svg';
 import { useNavigate, useOutletContext } from "react-router-dom";
+import './ButtonCls.css';
 
 
 const SelectSecurity = (props) => {
@@ -27,9 +28,11 @@ const SelectSecurity = (props) => {
     const handleSecurityGroup = (event) => {
         setSecurityGrp(event.target.innerText);
         toggleDD();
-        //got value of security group name if not created use this to store value for last screen 
-        //[key should same for create and select security]
-        //[HTTPS, TCP, 443, 192.168.1.1]
+       
+    }
+
+    const back_tab4b = () => {
+        navigate("/tab3");
     }
 
     const DrpDwn = () => (
@@ -55,8 +58,8 @@ const SelectSecurity = (props) => {
 
     return (
         <div className="subTab-box">
-            <p className="subTab-header">Select Security Group</p>
-            {/*<DropDown title_dd="Select Security" arrData={arr}/>*/}
+            <p data-testid="selectSec-id1" className="subTab-header">Select Security Group</p>
+           
 
             <div className="drpDwn-bx">
                 <div className="drpDwn-box-div">
@@ -66,7 +69,12 @@ const SelectSecurity = (props) => {
                 { showDD ? <DrpDwn /> : null }
             </div>
 
-            <button onClick={proceed_tab4b}>Proceed</button>
+            
+
+            <div className="main-btnDiv">
+                <button data-testid="selectSec-id3" className="main-btnCls" style={{background:"#000"}} onClick={back_tab4b}>Back</button>
+                <button data-testid="selectSec-id2" className="main-btnCls" style={{background:"#007EFF"}} onClick={proceed_tab4b}>Proceed</button>
+            </div>
 
         </div>
         
