@@ -1,9 +1,9 @@
-const data = [
+const data1 = [
     {
-        id:101, 
+        id:104, 
         img: null,
-        title: "Linux 2 Image",
-        price:243.61,
+        title: "Microsoft Windows Server 2019 Base",
+        price:338.77,
         description: "Linux 2 comes with 5 years of support. It provides Linus kernel 4.14 tuned for optimal performance"
     },
     {
@@ -11,6 +11,13 @@ const data = [
         img: null,
         title: "Ubuntu Server 18.04 LTS",
         price:350.00,
+        description: "Linux 2 comes with 5 years of support. It provides Linus kernel 4.14 tuned for optimal performance"
+    },
+    {
+        id:101, 
+        img: null,
+        title: "Linux 2 Image",
+        price:243.61,
         description: "Linux 2 comes with 5 years of support. It provides Linus kernel 4.14 tuned for optimal performance"
     },
     {
@@ -29,4 +36,4 @@ const data = [
     }
 ]
 
-export default data;
+export default data1;

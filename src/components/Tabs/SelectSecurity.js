@@ -1,18 +1,43 @@
 import React, {useState} from "react";
 import './Tab4.css';
 import Vector from '../../icons/Vector.svg';
+import { useNavigate, useOutletContext } from "react-router-dom";
 
-const arr = ["Security SG1", "Security SG2", "Security SG3", "Security SX 27", "Security SL 12", "Group 29", "Security RT 7", "SGX 8", "Security RT 8", "Group 32", "SGX 89", "TSMU 58"];
 
-const SelectSecurity = () => {
+const SelectSecurity = (props) => {
     const [showDD, setShowDD] = useState(false);
+    const [securityGrp, setSecurityGrp] = useState('Select Security');
+    const listD = useOutletContext();
+    const navigate = useNavigate();
+
+    const proceed_tab4b = () => {
+        let arr = []
+        if(securityGrp !== 'Select Security'){
+            arr.push(securityGrp);
+            arr.push('HTTPS')
+            arr.push('TCP');
+            arr.push('443');
+            arr.push('192.168.1.1');
+            arr.push('');
+            localStorage.setItem("tab4",JSON.stringify(arr));
+            navigate("/tab5");
+        }
+    }
+
+    const handleSecurityGroup = (event) => {
+        setSecurityGrp(event.target.innerText);
+        toggleDD();
+        //got value of security group name if not created use this to store value for last screen 
+        //[key should same for create and select security]
+        //[HTTPS, TCP, 443, 192.168.1.1]
+    }
 
     const DrpDwn = () => (
         <div className="drp-dwn">
             {
-                arr.map((elem, i) => {
+                listD.map((elem, i) => {
                     return(
-                        <span key={i+1} className="drp-spn">{elem}</span>
+                        <span key={i+1} className="drp-spn" onClick={handleSecurityGroup}>{elem}</span>
                     )
                 })
             }
@@ -35,11 +60,13 @@ const SelectSecurity = () => {
 
             <div className="drpDwn-bx">
                 <div className="drpDwn-box-div">
-                    <p className="drpDwn-box-text">Select Security</p>
+                    <p className="drpDwn-box-text">{securityGrp}</p>
                     <img src={Vector} className="arrowDrpDn" alt="icon" onClick={toggleDD}/>
                 </div>
                 { showDD ? <DrpDwn /> : null }
             </div>
+
+            <button onClick={proceed_tab4b}>Proceed</button>
 
         </div>
         
